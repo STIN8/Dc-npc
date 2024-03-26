@@ -1,6 +1,5 @@
 # Dc-npc
 Script Npc with FreeModeMale01 and anim
-سكربت التعقب برقم الجوال 
 
 
 standalone
