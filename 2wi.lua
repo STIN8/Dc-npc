@@ -5,30 +5,8 @@ local function LoadModel(hash)
      Wait(1)
     end
  end
-local PlayerData = {}
+ local     PlayerData = QBCore.Functions.GetPlayerData()
 
-
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
-    PlayerData = QBCore.Functions.GetPlayerData()
-end)
-
-RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
-    PlayerData = {}
-end)
-
-
-RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
-    PlayerData.job = JobInfo
-end)
-
-
-RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)
-    PlayerData.gang = GangInfo
-end)
-
-RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
-    PlayerData = val
-end)
 
 Citizen.CreateThread(function ()
 
@@ -58,7 +36,7 @@ Citizen.CreateThread(function ()
     SetPedComponentVariation(ped, 7, 0, 2, 2)
     SetPedComponentVariation(ped, 8, 35, 0, 2)
     SetPedComponentVariation(ped, 9, 43, 0, 2)
-    SetPedComponentVariation(ped, 11, 4, 0, 2)
+    SetPedComponentVariation(ped, 11, 19, 0, 2)
     SetPedPropIndex(ped, 0, 11, 0, true)
     SetPedHeadBlendData(ped, 5, 7, 1, 9, 0.0, false)
     
@@ -118,14 +96,13 @@ end)
 end)
 
 RegisterNetEvent('spawnpolicejob1', function()
-       
-            
-if Config.policeonly then
-    if PlayerData.job == "police" then
+
+if Config.policeonly == "true" then
+    if PlayerData.job.name == "police" then
 
         TriggerEvent("spawnpolicejob")
     end
-else
+elseif Config.policeonly == "false" then
     TriggerEvent("spawnpolicejob")
    
     end
