@@ -1,4 +1,4 @@
-
+local QBCore = exports['qb-core']:GetCoreObject()
 local function LoadModel(hash)
     RequestModel(hash)
  while not HasModelLoaded(hash) do
