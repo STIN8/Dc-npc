@@ -1,6 +1,6 @@
 Config =  {}
 
-Config.policeonly = "true" -- Only for the police
+Config.policeonly = "false" -- Only for the police
 
 ---- PED coords
 Config.ped = vector4(431.59, -985.61, 30.71, 4.67)
